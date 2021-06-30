@@ -1,19 +1,11 @@
-const products = [
-  {
-  name:'cream',
-  color: 'white',
-  smell: 'true'
-},
-{
-  name:'oil',
-  color: 'clear',
-  smell: 'false'
-},
-{
-  name:'face mask',
-  color:'mud',
-  smell: 'true'
-}
-]
+const { Schema, model } = require('mongoose');
 
-module.exports = products
+const productSchema = new Schema({
+  name: {type: String, required: true, unique: true},
+  color: { type: String, required: true},
+  smell: {type: Boolean, required: true}
+})
+
+const Product = model('Product', productSchema);
+
+module.exports = Product;
