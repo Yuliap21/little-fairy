@@ -1,4 +1,5 @@
 const React = require('react');
+const DefaultLayout = require('./layouts/Default');
 
 const h1Style = {
   color: '#ffffff',
@@ -9,7 +10,7 @@ class Index extends React.Component {
   render(){
     const products = this.props.products;
     return (
-      <div>
+      <DefaultLayout title={"Products Index Page"}>
         <h1 style={h1Style}>Products Index Page</h1>
         <nav>
         <a href="/products/new">Create a New Product</a>
@@ -24,13 +25,20 @@ class Index extends React.Component {
                   {product.smell?
                      `It smells like a cherry blossom`:
                      `It has zero smell`
-                  }
+                  } <br/>
+                  {product.description}, {product.img}, {product.price}, {product.qty}
+
+                  <form>
+                  <input type="submit"
+                  value="DELETE"/>
+                  </form>
+
               </li>
               )
             })
           }
         </ul>
-      </div>
+      </DefaultLayout>
     )
   }
 }
