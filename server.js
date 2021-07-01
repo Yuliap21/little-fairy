@@ -32,6 +32,8 @@ app.use((req, res, next) =>{
 
 
 app.use(express.urlencoded({ extended: true })) // Without this half my code wont work because i need req.body
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 /****
 Dummy Code
 For now
@@ -121,6 +123,20 @@ app.get('/products/new', (req, res) =>{
 /*
 Delete
 */
+app.delete('/products/:id', (req, res) => {
+  Products.findByIdAndDelete(req.params.id, (err, foundProduct)=>{
+    if(err){
+      res.status(404).send({
+          msg: err.message
+      })
+    } else {
+      res.redirect('/products')
+    }
+  })
+})
+
+
+
 /*
 Update
 */
@@ -134,7 +150,7 @@ app.post('/products', (req, res) =>{
   } else {
     req.body.smell = false;
   }
-  Product.create(req.body, (err, createdProduct ) => {
+  Products.create(req.body, (err, createdProduct ) => {
     if(err){
       res.status(404).send({
         msg: err.message
@@ -148,7 +164,19 @@ app.post('/products', (req, res) =>{
 /*
 Edit
 */
-
+app.get('/products/:id/edit', (req, res) => {
+  Products.findById(req.params.id, (err, foundProduct)=>{
+    if(err){
+      res.status(404).send({
+          msg: err.message
+      })
+    } else {
+      res.render('Edit', {
+        product: foundProduct
+      })
+    }
+  })
+})
 
 /*
 Show

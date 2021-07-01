@@ -28,10 +28,10 @@ class Index extends React.Component {
                   } <br/>
                   {product.description}, {product.img}, {product.price}, {product.qty}
 
-                  <form>
-                  <input type="submit"
-                  value="DELETE"/>
+                  <form method="POST" action={`/products/${product._id}?_method=DELETE`}>
+                          <input type="submit" value="DELETE"/>
                   </form>
+                  <a href={`/products/${product._id}/edit`}>Edit This Product</a>
 
               </li>
               )
