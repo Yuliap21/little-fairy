@@ -1,17 +1,11 @@
 const React = require('react');
 const DefaultLayout = require('./layouts/Default');
 
-const h1Style = {
-  color: '#ffffff',
-  backgroundColor: '#000000',
-};
-
 class Index extends React.Component {
   render(){
     const products = this.props.products;
     return (
-      <DefaultLayout title={"Products Index Page"}>
-        <h1 style={h1Style}>Products Index Page</h1>
+    <DefaultLayout title={"Products Index Page"} styles={[{key: 0, href: '/css/app.css'}, { key: 1, href: '/css/indexpage.css'}]}>
         <nav>
         <a href="/products/new">Create a New Product</a>
         </nav>

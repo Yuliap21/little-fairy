@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express');
+const methodOverride = require('method-override');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const Products = require('./models/product')
@@ -22,30 +23,17 @@ mongoose.connection.once('open', () =>{
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine())
 app.use((req, res, next) =>{
-  console.log('***********************')
-  console.log('***********Middleware checking in*******')
-  console.log('I run before all routes')
-  console.log('***********************')
+  res.locals.data = {}
   next()
-})
+});
 
 
 
 app.use(express.urlencoded({ extended: true })) // Without this half my code wont work because i need req.body
-const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
-/****
-Dummy Code
-For now
-*****/
-app.post('/products', (req, res) => {
-  console.log('Create route accessed')
-  console.log('req.body is', req.body)
-  res.send(req.body)
-})
-/****
-End Dummy Code
-*****/
+app.use(express.static('public'));
+app.use('/products', require('./controllers/routeController'));
+
 
 /***
 SEED ROUTE
@@ -82,6 +70,7 @@ app.get('/products/seed', (req, res) => {
           qty:"70"
         }
   ], (err, data) => {
+    console.log(data);
     res.redirect('/products')
   })
 });
@@ -140,7 +129,24 @@ app.delete('/products/:id', (req, res) => {
 /*
 Update
 */
-
+app.put('/products/:id', (req, res) => {
+  if(req.body.smell === 'on'){
+    req.body.smell = true;
+  } else {
+    req.body.smell = false;
+  }
+  Products.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedProducts)=>{
+    if(err){
+      res.status(404).send({
+          msg: err.message
+      })
+    } else {
+      res.render('Show', {
+        product: updatedProduct
+      })
+    }
+  })
+})
 /*
 Create
 */
