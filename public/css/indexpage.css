@@ -1,4 +1,30 @@
 h1 {
-  background-color: black;
-  color: ghostwhite;
-  font-size: 6rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: blush;
+  color: rgb(220, 22, 81);
+  font-size: 3rem;
+}
+body{
+  /* display: flex; */
+  /* text-align:center;
+  justify-content:space-around; */
+}
+ul{
+  height: 10rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center
+}
+/* li{
+  display: inline-table;
+  font-size: 3 rem;
+} */
+/* img{
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+} */

@@ -13,6 +13,10 @@ const dataController = {
         }
       })
   },
+
+
+
+
   show(req, res, next){
     Product.findById(req.params.id, (err, foundProduct) => {
       if(err){
@@ -68,6 +72,9 @@ const dataController = {
         next();
       }
     })
-  }
+  },
+
+
 }
+
 module.exports = dataController;
