@@ -1,5 +1,6 @@
 h1 {
   display: flex;
+  font-family: fantasy;
   text-align: center;
   justify-content: center;
   background-color: blush;
@@ -11,20 +12,42 @@ body{
   /* text-align:center;
   justify-content:space-around; */
 }
-ul{
-  height: 10rem;
+nav{
   display: flex;
   text-align: center;
-  align-items: center;
-  justify-content: center
+  justify-content: center;
+  font-weight: bold;
+  font-family: fantasy;
 }
-/* li{
-  display: inline-table;
-  font-size: 3 rem;
-} */
-/* img{
+
+ul{
+  height: 100vh;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bolder;
+  font-family: fantasy;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  list-style-type: none;
+
+}
+
+li{
+  border: 1px solid hotpink;
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 15em;
+  border-radius: 10px;
+}
+
+
+img{
   display: block;
     margin-left: auto;
     margin-right: auto;
-
-} */
+    width: 7em;
+    height: 10em;
+}

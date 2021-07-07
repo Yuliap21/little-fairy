@@ -20,10 +20,14 @@ class Index extends React.Component {
                      `It smells like a cherry blossom`:
                      `It has zero smell`
                   } <br/>
-                  {product.description}, {product.img <img src="">}, {product.price}, {product.qty}
+                  {product.description}  <img src={product.img}/>
+                  Price:{product.price}  in stock:{product.qty}
 
                   <form method="POST" action={`/products/${product._id}?_method=DELETE`}>
                           <input type="submit" value="DELETE"/>
+                  </form>
+                  <form method="POST" action={`/products/${product._id}?_method=PUT`}>
+                          <input type="submit" value="BUY"/>
                   </form>
                   <a href={`/products/${product._id}/edit`}>Edit This Product</a>
 

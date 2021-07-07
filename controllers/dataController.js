@@ -58,11 +58,11 @@ const dataController = {
       }
     })
   },
-  update(req, res, next){
+  update1(req, res, next){
     req.body.smell === 'on'
       ? req.body.smell = true
       : req.body.smell = false
-    Product.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, updatedProduct) => {
+    Product.findByIdAndUpdate(req.params.id, req.body.qty , { new: true}, (err, updatedProduct) => {
       if(err){
         res.status(404).send({
           msg: err.message
@@ -73,6 +73,22 @@ const dataController = {
       }
     })
   },
+  update(req, res, next){
+    req.body.smell === 'on'
+      ? req.body.smell = true
+      : req.body.smell = false
+    Product.findByIdAndUpdate(req.params.id, {$inc:{'qty': -1}}, { new: true}, (err, updatedProduct) => {
+      if(err){
+        res.status(404).send({
+          msg: err.message
+        })
+      } else {
+        res.locals.data.product = updatedProduct;
+        next();
+      }
+    })
+  }
+
 
 
 }

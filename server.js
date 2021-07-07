@@ -37,8 +37,8 @@ app.get('/test/seed',(req, res) => {
               name:'hand cream',
               color:'pink',
               smell: true,
-              description: 'soft hand cream for little lady',
-              img:"https://api.planetazdorovo.ru/upload/Photo_Tovar/18842803.jpg",
+              description: 'SOFT hand cream for little lady',
+              img:'https://api.planetazdorovo.ru/upload/Photo_Tovar/18842803.jpg',
               price:69,
               qty:50
 
