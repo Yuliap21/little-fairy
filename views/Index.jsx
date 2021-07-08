@@ -21,7 +21,7 @@ class Index extends React.Component {
                      `It has zero smell`
                   } <br/>
                   {product.description}  <img src={product.img}/>
-                  Price:{product.price}  in stock:{product.qty}
+                  Price:${product.price}  in stock:{product.qty}
 
                   <form method="POST" action={`/products/${product._id}?_method=DELETE`}>
                           <input type="submit" value="DELETE"/>

@@ -1,4 +1,22 @@
-#h1 {
+h1 {
   display: flex;
-  justify-content: center;
+font-family: fantasy;
+text-align: center;
+justify-content: center;
+color: rgb(220, 22, 81);
+font-size: 3rem;
+}
+
+text {
+  display: block;
+  text-align: center;
+  font-family: fantasy;
+}
+
+img{
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15em;
+    height: 20em;
 }

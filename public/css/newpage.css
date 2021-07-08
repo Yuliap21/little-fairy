@@ -1,0 +1,15 @@
+h1 {
+  display: flex;
+font-family: fantasy;
+text-align: center;
+justify-content: center;
+color: rgb(220, 22, 81);
+font-size: 3rem;
+}
+
+/* form{
+  display: block;
+font-family: fantasy;
+text-align: center;
+justify-content: center;
+} */

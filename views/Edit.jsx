@@ -3,7 +3,7 @@ const DefaultLayout = require('./layouts/Default.jsx');
 class Edit extends React.Component {
   render(){
     return (
-      <DefaultLayout title="Edit Page">
+      <DefaultLayout title="Edit Page" styles={[{key: 0, href: '/css/app.css'}, { key: 1, href: '/css/editpage.css'}]}>
         <form method="POST" action={`/products/${this.props.product._id}?_method=PUT`}>
         Name: <input type="text" name="name" defaultValue={this.props.product.name}/><br/>
         Color: <input type="text" name="color"  defaultValue={this.props.product.color}/><br/>

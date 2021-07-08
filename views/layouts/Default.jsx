@@ -5,7 +5,7 @@ class DefaultLayout extends React.Component {
       <html lang="en" dir="ltr">
           <head>
             <meta charSet="utf-8" />
-            {this.props.styles.map((style) => {
+            {this.props.styles && this.props.styles.map((style) => {
               return (
                 <link key={style.key} rel="stylesheet" href={style.href} />
               )

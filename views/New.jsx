@@ -4,7 +4,7 @@ const DefaultLayout = require('./layouts/Default');
 class New extends React.Component {
   render(){
     return (
-      <DefaultLayout title={'Make A New Product'}>
+      <DefaultLayout title="Make A New Product" styles={[{key: 0, href: '/css/app.css'}, { key: 1, href: '/css/newpage.css'}]}>
       <h1>Make a New Product</h1>
 
       <form action="/products" method="POST">
